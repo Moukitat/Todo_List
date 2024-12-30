@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formulaire de création de Tache</h1>
+    <form action="{% url 'CreateTaches' %}" method="POST">
+        {% csrf_token %}
+        <label for="titre">Titre</label>
+        <input type="text" name="titre" id="titre" required><br> 
+        
+        <label for="description">Description</label>
+        <textarea name="description" id="description"></textarea><br>
+        
+        <label for="date_echeance">Date d'échéance</label>
+        <input type="date" name="date_echeance" id="date_echeance" required><br>
+        
+        <label for="projet">Projet</label>
+        <select name="projet" id="projet">
+            {% for projet in projets %}
+                <option value="{{ projet.id }}">{{ projet.nom }}</option>
+            {% endfor %}
+        </select><br>
+        
+        <label for="completed">Etat</label>
+        <input type="checkbox" name="completed" id="completed"><br>
+        
+        <input type="submit" value="Créer">
+    </form>
+</body>
+</html>

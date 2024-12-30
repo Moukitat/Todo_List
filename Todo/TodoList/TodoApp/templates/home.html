@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Page d'accueil</h1>
+    <a href="{% url 'CreateProject' %}">Ajouter un projet</a>
+    <table border="1" width="100%">
+        <tr>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Date Echeance</th>
+            <th>Actions</th>
+        </tr>
+        {% for project in projets %}
+        <tr>
+            <td>{{ project.titre }}</td>
+            <td>{{ project.description }}</td>
+            <td>{{ project.date_echeance }}</td><br>
+            <td>
+                <a href="#">Modifier</a>
+                <a href="#">Supprimer</a>
+                <a href="#">Detail</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+</body>
+</html>

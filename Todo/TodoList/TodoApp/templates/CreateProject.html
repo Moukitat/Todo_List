@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formulaire</h1>
+    <form action="{% url 'CreateProject' %}" method="post">
+        {% csrf_token %}
+        <label for="titre">Titre</label>
+        <input type="Text" name="titre"> <br>
+        <label for="description">description</label>
+        <input type="text" name="description"> <br>
+        <label for="date_echeance">date_echeance</label>
+        <input type="date" name="date_echeance"> <br>
+        <button type="submit">Enrégistrer</button>
+
+    </form>
+</body>
+</html>
